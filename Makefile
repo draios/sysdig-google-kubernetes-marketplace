@@ -1,9 +1,20 @@
 SOLUTION_VERSION=$(shell cat chart/sysdig-agent-mp/Chart.yaml | grep version: | sed 's/.*: //g')
+TAG=$(SOLUTION_VERSION)
 APP_DEPLOYER_IMAGE=$(REGISTRY)/deployer:$(SOLUTION_VERSION)
 
 include ./app.Makefile
 include ./crd.Makefile
 include ./gcloud.Makefile
+
+$(info ---- TAG = $(TAG))
+
+APP_NAME ?= sysdig-agent-testrun
+
+APP_PARAMETERS ?= { \
+	"name": "$(APP_NAME)", \
+	"namespace": "$(NAMESPACE)", \
+	"sysdig.sysdig.accessKey": "${SYSDIG_AGENT_ACCESS_KEY}" \
+}
 
 .PHONY: submodule/init
 submodule/init:
@@ -26,7 +37,6 @@ app/build:: .build/sysdig-agent \
 								chart/sysdig-agent-mp/* \
 								chart/sysdig-agent-mp/templates/* \
 								.build/var/REGISTRY
-	echo $(SOLUTION_VERSION)
 	docker build \
 	    --build-arg REGISTRY=$(REGISTRY) \
 		--build-arg TAG=$(SOLUTION_VERSION) \
