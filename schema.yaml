@@ -1,0 +1,80 @@
+applicationApiVersion: v1beta1
+
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+  sysdig.serviceAccount.name:
+    type: string
+    x-google-marketplace:
+      type: SERVICE_ACCOUNT
+      serviceAccount:
+        roles:
+        - type: ClusterRole
+          rulesType: CUSTOM
+          rules:
+          - apiGroups:
+              - ""
+            resources:
+              - pods
+              - replicationcontrollers
+              - services
+              - events
+              - limitranges
+              - namespaces
+              - nodes
+              - resourcequotas
+            verbs:
+              - get
+              - list
+              - watch
+          - apiGroups:
+              - apps
+            resources:
+              - daemonsets
+              - deployments
+              - replicasets
+              - statefulsets
+            verbs:
+              - get
+              - list
+              - watch
+          - apiGroups:
+              - autoscaling
+            resources:
+              - horizontalpodautoscalers
+            verbs:
+              - get
+              - list
+              - watch
+          - apiGroups:
+              - batch
+            resources:
+              - cronjobs
+              - jobs
+            verbs:
+              - get
+              - list
+              - watch
+          - apiGroups:
+              - extensions
+            resources:
+              - daemonsets
+              - deployments
+              - ingresses
+              - replicasets
+            verbs:
+              - get
+              - list
+              - watch
+  sysdig.sysdig.accessKey:
+    type: string
+required:
+- name
+- namespace
+- sysdig.sysdig.accessKey

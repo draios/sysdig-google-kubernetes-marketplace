@@ -1,0 +1,6 @@
+dependencies:
+- name: sysdig
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 1.4.0
+digest: sha256:122a0c33f70417fed4ea6ff416dbb58586f40496f5fdccb3bc65b8a23de7e7de
+generated: 2019-03-01T17:16:48.687285133+01:00
