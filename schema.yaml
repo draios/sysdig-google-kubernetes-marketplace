@@ -73,6 +73,7 @@ properties:
               - list
               - watch
   sysdig.sysdig.accessKey:
+    title: Sysdig Access Key
     type: string
   sysdigImage:
     type: string
@@ -86,6 +87,7 @@ properties:
             repo: sysdig.image.repository
             tag: sysdig.image.tag
   sysdig.ebpf.enabled:
+    title: Enable eBPF support for Sysdig Agent
     type: boolean
     default: false
 required:
