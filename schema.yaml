@@ -75,7 +75,7 @@ properties:
   sysdig.sysdig.accessKey:
     title: Sysdig Access Key
     type: string
-  sysdigImage:
+  image:
     type: string
     default: docker.io/sysdig/agent:0.89.0
     x-google-marketplace:
@@ -93,4 +93,5 @@ properties:
 required:
 - name
 - namespace
+- image
 - sysdig.sysdig.accessKey
