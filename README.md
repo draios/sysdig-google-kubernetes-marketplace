@@ -5,7 +5,7 @@ Google's Hosted Marketplace.
 
 If you would like to read setup instructions about how to install this from the
 GCP marketplace, or on how to use the application once it's deployed, please
-refer to the user guide.
+refer to the [user guide](user-guide.md).
 
 ## Getting started
 
