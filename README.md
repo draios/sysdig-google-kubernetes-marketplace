@@ -1,34 +1,35 @@
-# Overview
+# sysdig-google-kubernetes-marketplace
 
-This repository contains example Kubernetes applications ("apps") that meet the
-requirements for integration with Google Cloud Marketplace. For a complete
-description of those requirements, see the technical onboarding guide.
-*TODO: add link*
+This repository contains instructions and files necessary to run Sysdig via
+Google's Hosted Marketplace.
 
-The related [marketplace-k8s-app-tools](https://github.com/GoogleCloudPlatform/marketplace-k8s-app-tools)
-repository contains utilities for testing the integration of an app with
-Marketplace, including a test harness for simulating UI-based deployment.
-The repository is submoduled under `/vendor/marketplace-tools`.
+If you would like to read setup instructions about how to install this from the
+GCP marketplace, or on how to use the application once it's deployed, please
+refer to the user guide.
 
-# Getting started
+## Getting started
 
-## Updating git submodules
+###  Updating git submodules
 
-You can run the following commands to make sure submodules
-are populated with proper code.
+This repo contains git submodules corresponding to dependent Google code repos.
+You can run the following commands to make sure submodules are populated with
+proper code.
 
 ```shell
 git submodule sync --recursive
 git submodule update --recursive --init --force
 ```
 
-## Setting up your cluster and environment
+Or using the Makefile
 
-See [Getting Started](https://github.com/GoogleCloudPlatform/marketplace-k8s-app-tools/blob/master/README.md#getting-started)
+```shell
+make submodule/init-force
+```
 
-## Installing Wordpress
+### Setting up your cluster and environment
 
-Run the following commands from within `wordpress` folder.
+This guide assumes that you already has a GKE cluster up and running and you
+can run `kubectl` commands for that cluster.
 
 Do a one time setup for application CRD:
 
@@ -36,18 +37,15 @@ Do a one time setup for application CRD:
 make crd/install
 ```
 
-Build and install Wordpress onto your cluster:
+## Installing Sysdig
+
+Prior to installing the Sysdig Agent, you will need an access key.  You must to
+use that value in the environment variable `$SYSDIG_AGENT_ACCESS_KEY`
+
+Build and install Sysdig Agent onto your cluster:
 
 ```shell
 make app/install
-```
-
-This will build the containers and install the application. You can
-watch the kubernetes resources being created directly from your CLI
-by running:
-
-```shell
-make app/watch
 ```
 
 To delete the installation, run:
@@ -56,50 +54,20 @@ To delete the installation, run:
 make app/uninstall
 ```
 
-## Overriding context values (Optional)
-
-By default `make` derives docker registry and k8s namespace
-from your local configurations of `gcloud` and `kubectl`. 
-
-You can see these values using
-
-```shell
-kubectl config view
-```
-
-If you want to use values that differ from the local context of `gcloud` and `kubectl`,
-you can override them by exporting the appropriate environment variables:
-
-```shell
-export REGISTRY=gcr.io/your-registry
-export NAMESPACE=your-namespace
-export APP_INSTANCE_NAME=your-installation-name
-export APP_TAG=your-tag
-```
-
-# Marketplace Integration Requirements
-
-Briefly, apps must support two modes of installation:
-- **CLI**: via a Kubernetes client tool like kubectl or helm
-- **Marketplace UI**: via the deployment container ("deployer") mechanism.
-
-A few additional Marketplace requirements are described below.
-
-## Application resource and controller
-
-Apps must supply an Application resource conforming to the
-[Kubernetes community proposal](https://github.com/kubernetes/community/pull/1629).
-The proposal describes the Application resource, as well as a corresponding
-controller that would be responsible for application-generic functionality such
-as assigning owner references to application components.
-
-**Temporary Note**: the public source repository associated with the proposal is
-not yet available. In the interim, we have an equivalent CRD and controller in
-the marketplace-k8s-app-tools repository. Expect changes once the public repo is
-available.
-
-## Deployer
+## Building the deployment container
 
 Apps must supply a deployment container image ("deployer") which is used in
 UI-based deployment. This image should extend from one of the base images
 provided in the marketplace-k8s-app-tools repository.
+
+The deployment container uses [Helm Chart for Sysdig](https://hub.helm.sh/charts/stable/sysdig)
+but it downloads the dependency in build time, so that, you need
+[Helm](https://helm.sh/) installed in the machine where the deployment container
+is built.
+
+Once you have the Helm dependency resolved, you can build and push the
+deployment container just running:
+
+```shell
+make app/build
+```
