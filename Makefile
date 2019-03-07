@@ -35,14 +35,18 @@ app/build:: .build/sysdig-agent \
 .build/sysdig-agent/deployer:	schema.yaml \
 								deployer/* \
 								chart/sysdig-agent-mp/* \
+								chart/sysdig-agent-mp/charts/sysdig-$(SOLUTION_VERSION).tgz \
 								chart/sysdig-agent-mp/templates/* \
 								.build/var/REGISTRY
 	docker build \
-	    --build-arg REGISTRY=$(REGISTRY) \
+		--build-arg REGISTRY=$(REGISTRY) \
 		--build-arg TAG=$(SOLUTION_VERSION) \
-	    --build-arg MARKETPLACE_TOOLS_TAG="$(MARKETPLACE_TOOLS_TAG)" \
-	    --tag "$(APP_DEPLOYER_IMAGE)" \
-	    -f deployer/Dockerfile \
-	    .
+		--build-arg MARKETPLACE_TOOLS_TAG="$(MARKETPLACE_TOOLS_TAG)" \
+		--tag "$(APP_DEPLOYER_IMAGE)" \
+		-f deployer/Dockerfile \
+		.
 	docker push "$(APP_DEPLOYER_IMAGE)"
 	@touch "$@"
+
+chart/sysdig-agent-mp/charts/sysdig-$(SOLUTION_VERSION).tgz:
+	helm dependency build chart/sysdig-agent-mp
