@@ -20,11 +20,11 @@ the prompts and fill out the configuration options described below.
 
 ### Key Configuration Options
 
-* *Name*: the name of your cluster deployment.
-* *Namespace*: the namespace where the Sysdig Agent is going to be deployed.
-* *Image*: the image of the Sysdig Agent. You can control its version from here.
-* *Sysdig Access Key*: the key provided from Sysdig for monitoring your infrastructure.
-* *eBPF support*: use eBPF instead of kernel module based architecture.
+* **Name**: the name of your cluster deployment.
+* **Namespace**: the namespace where the Sysdig Agent is going to be deployed.
+* **Image**: the image of the Sysdig Agent. You can control its version from here.
+* **Sysdig Access Key**: the key provided from Sysdig for monitoring your infrastructure.
+* **eBPF support**: use eBPF instead of kernel module based architecture.
 
 ### Hardware Allocation
 
