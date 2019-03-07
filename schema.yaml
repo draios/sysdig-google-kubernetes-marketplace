@@ -85,6 +85,9 @@ properties:
             registry: sysdig.image.registry
             repo: sysdig.image.repository
             tag: sysdig.image.tag
+  sysdig.ebpf.enabled:
+    type: boolean
+    default: false
 required:
 - name
 - namespace
