@@ -74,6 +74,17 @@ properties:
               - watch
   sysdig.sysdig.accessKey:
     type: string
+  sysdigImage:
+    type: string
+    default: docker.io/sysdig/agent:0.89.0
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: sysdig.image.registry
+            repo: sysdig.image.repository
+            tag: sysdig.image.tag
 required:
 - name
 - namespace
