@@ -14,6 +14,7 @@ APP_NAME ?= sysdig-agent-testrun
 APP_PARAMETERS ?= { \
 	"name": "$(APP_NAME)", \
 	"namespace": "$(NAMESPACE)", \
+	"image": "docker.io/sysdig/agent:$(SYSDIG_AGENT_TAG)", \
 	"sysdig.sysdig.accessKey": "${SYSDIG_AGENT_ACCESS_KEY}" \
 }
 
