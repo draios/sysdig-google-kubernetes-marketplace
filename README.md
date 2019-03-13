@@ -66,12 +66,15 @@ Once you have deployed the Sysdig Agent, it's time to verify that everything is
 working as expected. So, we are going to log in Sysdig Monitor to do the check.
 
 1. Access Sysdig Monitor:
+
    **SaaS**: https://app.sysdigcloud.com
+
    Log in with your Sysdig user name and password.
 
 2. Select the **Explore** tab to see if metrics are displayed.
 
 3. To verify that kube state metrics and cluster name are working correctly:
+
    Select the **Explore tab** and create a grouping by `kubernetes.cluster.name` and `kubernetes.pod.name`.
 
    ![Explore grouping](https://api.media.atlassian.com/file/75a3010e-3d2e-4135-89fe-b2a1d254d979/image?token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMDdjMzg0Yy0yOTc1LTQzNTctYWFlNy1jZDNjMTVmMzk2NTYiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjc1YTMwMTBlLTNkMmUtNDEzNS04OWZlLWIyYTFkMjU0ZDk3OSI6WyJyZWFkIl19LCJleHAiOjE1NTI0ODMwMjYsIm5iZiI6MTU1MjQ3OTk2Nn0.Vt_BBvhOmcguf4bee_CJwEx--06uy6RGG_aV6qj8XcA&client=107c384c-2975-4357-aae7-cd3c15f39656&name=K8s_Grouping.png&max-age=2940&width=2128&height=500)
