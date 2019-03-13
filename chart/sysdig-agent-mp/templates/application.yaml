@@ -15,7 +15,9 @@ spec:
     type: Sysdig
     versions: '0.89.0'
     description: |-
-      Sysdig Platform it's the most powerful way to understand the data at the heart of your applications. Starting with a unique data source, we've built a platform that brings together many disparate operational requirements into a single, more effective way of securing and monitoring your cloud-native applications.
+      [Sysdig Platform](https://sysdig.com) it's the most powerful way to understand the data at the heart of your applications.
+
+      Starting with a unique data source, we've built a platform that brings together many disparate operational requirements into a single, more effective way of securing and monitoring your cloud-native applications.
     maintainers:
     - name: Sysdig, Inc.
       url: https://sysdig.com
@@ -25,10 +27,40 @@ spec:
     - troubleshooting
     - container
     links:
-    - description: Sysdig Home Page
-      url: https://sysdig.com
+    - description: Sysdig Platform Documentation
+      url: https://sysdigdocs.atlassian.net/wiki/spaces/Platform
+    - description: Sysdig Monitor Documentation
+      url: https://sysdigdocs.atlassian.net/wiki/spaces/Monitor
+    - description: Sysdig Secure Documentation
+      url: https://sysdigdocs.atlassian.net/wiki/spaces/Secure
     - description: Support
       url: https://sysdig.com/support
+    notes: |-
+      Once you have deployed the Sysdig Agent to your platform, you can access
+      either to [Sysdig Monitor](https://app.sysdigcloud.com) or
+      [Sysdig Secure](https://secure.sysdig.com).
+
+      You will be promted for you login and your password and then, you can start
+      to enjoy your experience monitoring and securing your Kubernetes cluster.
+
+      # Adding more options to Sysdig Agent
+
+      The Sysdig Agent is really flexible and offers a lot of options to
+      customize. We provide a version with sane defaults, but perhaps you need
+      to adapt and tune to your own needs.
+
+      ```shell
+      export APP_INSTANCE_NAME=<name of your Sysdig Agent instance, e.g. sysdig-agent-1>
+
+      kubectl edit configmap $APP_INSTANCE_NAME
+      ```
+
+      And you can edit directly the entry under `dragent.yaml` key. Once you
+      saved, and the configmap was reloaded, the Sysdig Agent will notice about
+      it and will reload the configuration.
+
+      If you need to understand a bit more about the settings of the Sysdig Agent,
+      you can read more about the [Agent Configuration](https://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/189726885/Agent+Configuration) in the Sysdig Documentation.
   selector:
     matchLabels:
       release: "{{ .Release.Name }}"
