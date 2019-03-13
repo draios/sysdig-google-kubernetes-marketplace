@@ -1,5 +1,5 @@
 TAG=$(shell cat chart/sysdig-agent-mp/Chart.yaml | grep version: | sed 's/.*: //g')
-APP_DEPLOYER_IMAGE=$(REGISTRY)/sysdig-agent/deployer:$(TAG)
+APP_DEPLOYER_IMAGE=$(REGISTRY)/agent/deployer:$(TAG)
 SYSDIG_AGENT_TAG=0.89.0
 
 include ./app.Makefile
