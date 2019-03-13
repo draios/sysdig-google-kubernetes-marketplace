@@ -44,7 +44,7 @@ spec:
       either to [Sysdig Monitor](https://app.sysdigcloud.com) or
       [Sysdig Secure](https://secure.sysdig.com).
 
-      You will be promted for you login and your password and then, you can start
+      You will be prompted for you login and your password and then, you can start
       to enjoy your experience monitoring and securing your Kubernetes cluster.
 
       # Adding more options to Sysdig Agent
