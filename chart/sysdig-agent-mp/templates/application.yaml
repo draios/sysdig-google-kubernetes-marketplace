@@ -13,7 +13,7 @@ metadata:
 spec:
   descriptor:
     type: Sysdig
-    versions: '0.89.0'
+    version: '0.89.0'
     description: |-
       [Sysdig Platform](https://sysdig.com) it's the most powerful way to understand the data at the heart of your applications.
 
