@@ -27,6 +27,10 @@ spec:
     - troubleshooting
     - container
     links:
+    - description: Sysdig Monitor
+      url: "https://app.sysdigcloud.com"
+    - description: Sysdig Secure
+      url: "https://secure.sysdig.com"
     - description: Sysdig Platform Documentation
       url: https://sysdigdocs.atlassian.net/wiki/spaces/Platform
     - description: Sysdig Monitor Documentation
