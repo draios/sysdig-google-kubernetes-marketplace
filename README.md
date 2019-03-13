@@ -9,23 +9,6 @@ refer to the [user guide](user-guide.md).
 
 ## Getting started
 
-###  Updating git submodules
-
-This repo contains git submodules corresponding to dependent Google code repos.
-You can run the following commands to make sure submodules are populated with
-proper code.
-
-```shell
-git submodule sync --recursive
-git submodule update --recursive --init --force
-```
-
-Or using the Makefile
-
-```shell
-make submodule/init-force
-```
-
 ### Setting up your cluster and environment
 
 This guide assumes that you already has a GKE cluster up and running and you
