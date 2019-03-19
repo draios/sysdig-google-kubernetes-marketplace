@@ -54,9 +54,7 @@ spec:
       to adapt and tune to your own needs.
 
       ```shell
-      export APP_INSTANCE_NAME=<name of your Sysdig Agent instance, e.g. sysdig-agent-1>
-
-      kubectl edit configmap $APP_INSTANCE_NAME
+      kubectl edit configmap {{ .Release.Name }}
       ```
 
       And you can edit directly the entry under `dragent.yaml` key. Once you
