@@ -77,7 +77,7 @@ properties:
     type: string
   image:
     type: string
-    default: $REGISTRY:$TAG
+    default: $REGISTRY/agent:$TAG
     x-google-marketplace:
       type: IMAGE
       image:
