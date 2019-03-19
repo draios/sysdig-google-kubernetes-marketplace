@@ -10,6 +10,7 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
   sysdig.serviceAccount.name:
+    title: Sysdig Agent Service Account
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
