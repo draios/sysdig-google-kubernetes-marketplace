@@ -89,8 +89,13 @@ properties:
             tag: sysdig.image.tag
   sysdig.ebpf.enabled:
     title: Enable eBPF support for Sysdig Agent
+    description: |-
+      Mark this checkbox if you are using a Kernel newer than 4.14. The default
+      value for newly created clusters is enabled, but if you are using an older
+      kernel, please uncheck this checkbox and use the Sysdig Kernel mmodule for
+      capturing the system calls.
     type: boolean
-    default: false
+    default: true
 required:
 - name
 - namespace
