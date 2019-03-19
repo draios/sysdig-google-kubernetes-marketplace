@@ -11,6 +11,7 @@ properties:
       type: NAMESPACE
   sysdig.serviceAccount.name:
     title: Sysdig Agent Service Account
+    description: Service account to assign to Sysdig Agent DaemonSet
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
