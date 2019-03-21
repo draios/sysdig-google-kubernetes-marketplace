@@ -79,8 +79,7 @@ properties:
     description: |-
       You can get your Access Key in your Sysdig Platform settings.
 
-      If you need more details access to<a href="https://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/213352719/Agent+Installation+Overview+and+Key">
-      Agent Installation Overview and Key</a> in the Sysdig documentation.
+      If you need more details, please access to the Sysdig Documentation entry: https://bit.ly/2TNqIRf
     type: string
   image:
     type: string
