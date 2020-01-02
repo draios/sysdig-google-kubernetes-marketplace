@@ -4,7 +4,7 @@ APP_DEPLOYER_IMAGE=$(REGISTRY)/agent/deployer:$(TAG)
 MINOR_TAG=$(shell echo $(TAG) | cut -d. -f1-2)
 APP_DEPLOYER_IMAGE_MINOR=$(REGISTRY)/agent/deployer:$(MINOR_TAG)
 
-SYSDIG_AGENT_TAG=0.92.1
+SYSDIG_AGENT_TAG=0.94.0
 
 include ./app.Makefile
 include ./crd.Makefile
