@@ -1,4 +1,4 @@
 dependencies:
   - name: sysdig
-    version: 1.7.2
-    repository: https://kubernetes-charts.storage.googleapis.com
+    version: 1.12.7
+    repository: https://charts.sysdig.com

@@ -1,6 +1,6 @@
 dependencies:
 - name: sysdig
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 1.7.2
-digest: sha256:fc17b7b1f3a543ab1658309445000634fe8c550fcc13224dae8089df6c700f3e
-generated: "2020-02-11T15:31:09.667776668-08:00"
+  repository: https://charts.sysdig.com
+  version: 1.12.7
+digest: sha256:9787a46f8e416ab00e9aa24f180870dda8bafe24b1fe0b689f11b5469a5d50d2
+generated: "2021-07-05T11:26:21.936587553+02:00"
